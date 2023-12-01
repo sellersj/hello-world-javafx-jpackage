@@ -75,7 +75,13 @@
                 Either module or main-jar option can be specified
                 but not both.
               -->
-            <module>${project.artifactId}/com.example.jpackagejavafx.HelloWorld</module>
+            <!--
+            <module>${project.artifactId}/com.example.jpackagejavafx.HelloWorld</module>-->
+
+            <mainjar>
+              ${project.build.directory}/${project.build.finalName}.${project.packaging}</mainjar>
+            <mainclass>com.example.jpackagejavafx.HelloWorld</mainclass>
+
             <javaoptions>-Dfile.encoding=UTF-8 -Xms256m -Xmx512m</javaoptions>
           </configuration>
         </plugin>
