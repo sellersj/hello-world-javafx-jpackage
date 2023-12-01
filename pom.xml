@@ -6,6 +6,7 @@
   <artifactId>hello-world-javafx-jpackage</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>hello world javafx jpackage example</name>
+  <description>A tool to demonstrate a javaFX using native packaging</description>
   <packaging>jar</packaging>
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
@@ -49,9 +50,73 @@
               implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory" />
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>com.github.akman</groupId>
+          <artifactId>jpackage-maven-plugin</artifactId>
+          <version>0.1.5</version>
+          <configuration>
+            <name>${project.artifactId}</name>
+            <appversion>${project.version}</appversion>
+            <description>${project.description} </description>
+
+            <!-- TODO fix this to be a more generic solution -->
+            <!-- set this since on macos it does weird things with the path -->
+            <!--            <toolhome>$‍{env.JAVA_HOME}</toolhome>-->
+            <toolhome>
+              /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home</toolhome>
+
+
+            <!--
+                Specifies the main module (and optionally main class) of
+                the application. This module must be located on the module path.
+                When this option is specified, the main module will be linked
+                in the Java runtime image.
+                Either module or main-jar option can be specified
+                but not both.
+              -->
+            <module>${project.artifactId}/com.example.jpackagejavafx.HelloWorld</module>
+            <javaoptions>-Dfile.encoding=UTF-8 -Xms256m -Xmx512m</javaoptions>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <echo>Displaying 3 environment variables</echo>
+                <echo>[COMPUTERNAME] ${env.COMPUTERNAME}</echo>
+                <echo>[M2_HOME] ${env.M2_HOME}</echo>
+                <echo>[Path] ${env.PATH}</echo>
+                <echo>[JAVA_HOME] ${env.JAVA_HOME}</echo>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.akman</groupId>
+        <artifactId>jpackage-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>jpackage-image</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jpackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
