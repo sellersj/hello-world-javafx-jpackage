@@ -57,8 +57,16 @@
           <version>0.1.5</version>
           <configuration>
             <name>${project.artifactId}</name>
-            <appversion>${project.version}</appversion>
+            <!-- verison cannot contain -SNAPSHOT and must be 3 digits -->
+            <!--            <appversion>${project.version}</appversion>-->
+            <appversion>1.0.0</appversion>
+
             <description>${project.description} </description>
+
+            <!-- default of PLATFORM does not work on macos -->
+            <type>IMAGE</type>
+            
+            <input>${project.build.directory}/jpackage</input>
 
             <!-- TODO fix this to be a more generic solution -->
             <!-- set this since on macos it does weird things with the path -->
