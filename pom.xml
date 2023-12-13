@@ -42,7 +42,7 @@
       <plugins>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.2</version>
+          <version>3.2.3</version>
           <configuration>
             <runOrder>hourly</runOrder>
             <!-- Activate the use of TCP to transmit events to the plugin -->
