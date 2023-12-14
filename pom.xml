@@ -61,7 +61,7 @@
             <!--            <appversion>${project.version}</appversion>-->
             <appversion>1.0.0</appversion>
 
-            <description>${project.description} </description>
+            <description>${project.description}</description>
 
             <!-- default of PLATFORM does not work on macos -->
             <type>IMAGE</type>
