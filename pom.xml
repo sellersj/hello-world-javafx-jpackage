@@ -67,7 +67,7 @@
 
             <!-- TODO put the jar and any needed libraries into a folder for the
             'input' but not everything -->
-            <input>${project.build.directory}/classes</input>
+            <input>${project.build.directory}/jpackage-input</input>
 
             <verbose>true</verbose>
 
@@ -128,7 +128,7 @@
         <configuration>
           <toolchains>
             <jdk>
-              <version>21</version>
+              <version>${maven.compiler.source}</version>
             </jdk>
           </toolchains>
         </configuration>
@@ -137,6 +137,25 @@
             <goals>
               <goal>toolchain</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.coderplus.maven.plugins</groupId>
+        <artifactId>copy-rename-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <id>copy-file</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <sourceFile>
+                ${project.build.directory}/${project.build.finalName}.${project.packaging}</sourceFile>
+              <destinationFile>${project.build.directory}/jpackage-input/${project.build.finalName}.${project.packaging}</destinationFile>
+            </configuration>
           </execution>
         </executions>
       </plugin>
