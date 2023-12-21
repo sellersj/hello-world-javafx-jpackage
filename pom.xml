@@ -50,7 +50,6 @@
               implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory" />
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>com.github.akman</groupId>
           <artifactId>jpackage-maven-plugin</artifactId>
@@ -65,14 +64,18 @@
 
             <!-- default of PLATFORM does not work on macos -->
             <type>IMAGE</type>
-            
-            <input>${project.build.directory}/jpackage</input>
+
+            <!-- TODO put the jar and any needed libraries into a folder for the
+            'input' but not everything -->
+            <input>${project.build.directory}/classes</input>
+
+            <verbose>true</verbose>
 
             <!-- TODO fix this to be a more generic solution -->
             <!-- set this since on macos it does weird things with the path -->
             <!--            <toolhome>$‍{env.JAVA_HOME}</toolhome>-->
-            <toolhome>
-              /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home</toolhome>
+            <!--
+            <toolhome>/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home</toolhome>-->
 
 
             <!--
@@ -115,6 +118,25 @@
                 <echo>[JAVA_HOME] ${env.JAVA_HOME}</echo>
               </target>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>21</version>
+            </jdk>
+          </toolchains>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
