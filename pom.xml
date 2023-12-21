@@ -102,28 +102,6 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target>
-                <echo>Displaying 3 environment variables</echo>
-                <echo>[COMPUTERNAME] ${env.COMPUTERNAME}</echo>
-                <echo>[M2_HOME] ${env.M2_HOME}</echo>
-                <echo>[Path] ${env.PATH}</echo>
-                <echo>[JAVA_HOME] ${env.JAVA_HOME}</echo>
-              </target>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-toolchains-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
