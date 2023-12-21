@@ -10,3 +10,10 @@ https://stackoverflow.com/a/55300492/2055199
 
 ## Toolchain required
 This setup requires that you have a matching toolchain file that points to the correct jdk needed.
+
+## Troubleshooting
+### Macos
+* Right-click on YourApplication.app (in the Applications Folder)...Show Package Contents.
+* In the MacOS folder, right-click on the Terminal icon showing your app's name. Open with Terminal....
+* This will show you any errors fired during the launch sequence.
+[Source](https://stackoverflow.com/a/73100783/2055199)
