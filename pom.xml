@@ -72,13 +72,6 @@
 
             <verbose>true</verbose>
 
-            <!-- TODO fix this to be a more generic solution -->
-            <!-- set this since on macos it does weird things with the path -->
-            <!--            <toolhome>$‍{env.JAVA_HOME}</toolhome>-->
-            <!--
-            <toolhome>/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home</toolhome>-->
-
-
             <!--
                 Specifies the main module (and optionally main class) of
                 the application. This module must be located on the module path.
@@ -90,12 +83,35 @@
             <!--
             <module>${project.artifactId}/com.example.jpackagejavafx.HelloWorld</module>-->
 
+            <!-- I had trouble getting this to work using the jar name and
+            javaFX -->
             <!-- just the name of the jar without the path -->
-            <mainjar>${project.build.finalName}.${project.packaging}</mainjar>
-            <mainclass>com.example.jpackagejavafx.HelloWorld</mainclass>
+            <!--
+            <mainjar>${project.build.finalName}.${project.packaging}</mainjar>-->
+            <!--            <mainclass>com.example.jpackagejavafx.HelloWorld</mainclass>-->
+
+            <!-- using a module which needs to match module-info.java -->
+            <module>
+              com.github.sellersj.helloworld.javafx.jpackage/com.example.jpackagejavafx.HelloWorld</module>
+            <modulepath>
+              <dependencysets>
+                <dependencyset>
+                  <includeoutput>true</includeoutput>
+                  <excludeautomatic>true</excludeautomatic>
+                </dependencyset>
+              </dependencysets>
+            </modulepath>
 
             <javaoptions>-Dfile.encoding=UTF-8 -Xms256m -Xmx512m</javaoptions>
           </configuration>
+          <dependencies>
+            <!-- need a newer version of asm to support java 21 -->
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm</artifactId>
+              <version>9.6</version>
+            </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
