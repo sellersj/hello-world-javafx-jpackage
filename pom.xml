@@ -134,25 +134,22 @@
               <outputDirectory>${jpackage.input}</outputDirectory>
             </configuration>
           </execution>
-        </executions>
-      </plugin>
-      <!-- TODO think about refactoring this with dependency:copy -->
-      <plugin>
-        <groupId>com.coderplus.maven.plugins</groupId>
-        <artifactId>copy-rename-maven-plugin</artifactId>
-        <version>1.0</version>
-        <executions>
+          <!-- copy the packaged jar into the correct location -->
           <execution>
-            <id>copy-file</id>
+            <id>copy-final-jar-to-jpackage-output</id>
             <phase>verify</phase>
             <goals>
               <goal>copy</goal>
             </goals>
             <configuration>
-              <sourceFile>
-                ${project.build.directory}/${project.build.finalName}.${project.packaging}</sourceFile>
-              <destinationFile>
-                ${jpackage.input}/${project.build.finalName}.${project.packaging}</destinationFile>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>${project.artifactId}</artifactId>
+                  <version>${project.version}</version>
+                </artifactItem>
+              </artifactItems>
+              <outputDirectory>${jpackage.input}</outputDirectory>
             </configuration>
           </execution>
         </executions>
