@@ -17,6 +17,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <junit.version>5.10.1</junit.version>
     <javafx.version>21.0.1</javafx.version>
+    <jpackage.input>${project.build.directory}/jpackage-input</jpackage.input>
   </properties>
   <dependencies>
     <dependency>
@@ -67,7 +68,7 @@
 
             <!-- TODO put the jar and any needed libraries into a folder for the
             'input' but not everything -->
-            <input>${project.build.directory}/jpackage-input</input>
+            <input>${jpackage.input}</input>
 
             <verbose>true</verbose>
 
@@ -141,6 +142,24 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies-to-jpackage-output</id>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeScope>compile</includeScope>
+              <outputDirectory>${jpackage.input}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- TODO think about refactoring this with dependency:copy -->
+      <plugin>
         <groupId>com.coderplus.maven.plugins</groupId>
         <artifactId>copy-rename-maven-plugin</artifactId>
         <version>1.0</version>
@@ -154,7 +173,8 @@
             <configuration>
               <sourceFile>
                 ${project.build.directory}/${project.build.finalName}.${project.packaging}</sourceFile>
-              <destinationFile>${project.build.directory}/jpackage-input/${project.build.finalName}.${project.packaging}</destinationFile>
+              <destinationFile>
+                ${jpackage.input}/${project.build.finalName}.${project.packaging}</destinationFile>
             </configuration>
           </execution>
         </executions>
