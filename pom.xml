@@ -129,6 +129,7 @@
         </configuration>
         <executions>
           <execution>
+            <?m2e ignore?>
             <goals>
               <goal>toolchain</goal>
             </goals>
@@ -152,6 +153,7 @@
           </execution>
           <!-- copy the packaged jar into the correct location -->
           <execution>
+            <?m2e ignore?>
             <id>copy-final-jar-to-jpackage-output</id>
             <phase>verify</phase>
             <goals>
