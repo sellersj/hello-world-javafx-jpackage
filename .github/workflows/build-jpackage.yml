@@ -38,6 +38,7 @@ jobs:
       run: |
         mvn -B -V verify
         #jpackage --verbose "@jpackage.cfg" "@jpackage-linux.cfg"
+        ls -lR target
 
 # SAVE INSTALLER
     - id: upload-installer
@@ -76,6 +77,7 @@ jobs:
       name: Build distribution
       run: |
         mvn -B -V verify
+        ls -lR target
 
 # SAVE INSTALLER
     - id: upload-installer
