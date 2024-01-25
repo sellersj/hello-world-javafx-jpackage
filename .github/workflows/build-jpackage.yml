@@ -36,7 +36,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V verify
+        mvn -B -V clean verify
         #jpackage --verbose "@jpackage.cfg" "@jpackage-linux.cfg"
         ls -lR target
 
@@ -76,8 +76,8 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V verify
-        ls -lR target
+        mvn -B -V clean verify
+        Get-ChildItem target -recurse
 
 # SAVE INSTALLER
     - id: upload-installer
