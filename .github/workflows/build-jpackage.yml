@@ -30,7 +30,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V package
+        mvn -B -V verify
         #jpackage --verbose "@jpackage.cfg" "@jpackage-linux.cfg"
 
 # SAVE INSTALLER
@@ -63,7 +63,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V package
+        mvn -B -V verify
 
 # SAVE INSTALLER
     - id: upload-installer
