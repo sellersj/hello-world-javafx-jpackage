@@ -25,6 +25,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 21
+    - name: Cache Maven packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
 
 # BUILD FOR DISTRIBUTION
     - id: build
@@ -58,6 +64,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 21
+    - name: Cache Maven packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
 
 # BUILD FOR DISTRIBUTION
     - id: build
