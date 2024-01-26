@@ -40,7 +40,7 @@ jobs:
       name: Upload installer
       uses: actions/upload-artifact@v3
       with:
-        path: ./hello-world-javafx-jpackage/build/distributions/hello-world-javafx-jpackage_1.0.0_amd64.deb
+        path: ./target/hello-world-javafx-jpackage*.zip
         name: linux-installer
         retention-days: 1
 
@@ -74,7 +74,7 @@ jobs:
       name: Upload installer
       uses: actions/upload-artifact@v3
       with:
-        path: ./hello-world-javafx-jpackage/build/distributions/hello-world-javafx-jpackage-1.0.0.msi
+        path: ./target/hello-world-javafx-jpackage*.zip
         name: windows-installer
         retention-days: 1
 
