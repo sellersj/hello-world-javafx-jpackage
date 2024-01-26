@@ -16,7 +16,7 @@ jobs:
 # SETUP BUILD ENVIRONMENT
     - id: checkout-code
       name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: main
     - id: setup-jdk
@@ -53,7 +53,7 @@ jobs:
 # SETUP BUILD ENVIRONMENT
     - id: checkout-code
       name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - id: setup-jdk
       name: Setup JDK
       uses: actions/setup-java@v3
