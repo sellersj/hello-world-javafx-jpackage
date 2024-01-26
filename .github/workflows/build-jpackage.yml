@@ -62,7 +62,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvnw.cmd -B -V clean verify
+        .\\mvnw.cmd -B -V clean verify
     # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
