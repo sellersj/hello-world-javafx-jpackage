@@ -1,13 +1,14 @@
 # hello-world-javafx-jpackage
 
-## Built using github actions
+## Pre-built using github actions
 As a demo some distributions are built using the github actions. If you go to 
 the [actions section](https://github.com/sellersj/hello-world-javafx-jpackage/actions) and click on the
 latest run and scroll to the bottom of the page where the "Artifacts" are, you should be able to download
 them from there.
 
 ## Toolchain required
-This setup requires that you have a matching toolchain file that points to the correct jdk needed.
+This setup requires that you have a matching [maven toolchain](https://maven.apache.org/guides/mini/guide-using-toolchains.html)
+file that points to the correct jdk needed.
 
 ## Troubleshooting
 
