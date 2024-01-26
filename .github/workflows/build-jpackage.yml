@@ -38,7 +38,7 @@ jobs:
 # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         path: ./target/hello-world-javafx-jpackage*.zip
         name: linux-installer
@@ -75,7 +75,7 @@ jobs:
 # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         path: ./target/hello-world-javafx-jpackage*.zip
         name: windows-installer
