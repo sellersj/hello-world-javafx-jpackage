@@ -29,7 +29,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V clean verify
+        ./mvnw -B -V clean verify
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@ed72a3242c5331913886b41ca9ea66c9195ebdaa
@@ -62,7 +62,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V clean verify
+        mvnw.cmd -B -V clean verify
     # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
@@ -91,7 +91,7 @@ jobs:
     - id: build
       name: Build distribution
       run: |
-        mvn -B -V clean verify
+        ./mvnw -B -V clean verify
     # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
