@@ -74,7 +74,7 @@ jobs:
 
   build-macos-installer:
     name: Build Installer on MacOS
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
     # SETUP BUILD ENVIRONMENT
     - id: checkout-code
