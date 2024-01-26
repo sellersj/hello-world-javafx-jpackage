@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-  #schedule:
-  #  - cron: '0 10 1/6 * *'
+  schedule:
+    - cron: '0 5 * * 1-5'
 
 jobs:
   build-linux-installer:
