@@ -32,7 +32,7 @@ jobs:
         ./mvnw -B -V clean verify
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v4.1.1
+      uses: advanced-security/maven-dependency-submission-action@v4.1.2
     # SAVE INSTALLER
     - id: upload-installer
       name: Upload installer
