@@ -9,14 +9,14 @@
   <description>A tool to demonstrate a javaFX using native packaging</description>
   <packaging>jar</packaging>
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>25</maven.compiler.source>
+    <maven.compiler.target>25</maven.compiler.target>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <junit.version>5.13.3</junit.version>
-    <javafx.version>21.0.4</javafx.version>
+    <javafx.version>25-ea+24</javafx.version>
     <jpackage.input>${project.build.directory}/jpackage-input</jpackage.input>
   </properties>
   <dependencies>
