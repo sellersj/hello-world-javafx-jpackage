@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <junit.version>5.13.4</junit.version>
-    <javafx.version>21.0.4</javafx.version>
+    <javafx.version>26-ea+3</javafx.version>
     <jpackage.input>${project.build.directory}/jpackage-input</jpackage.input>
   </properties>
   <dependencies>
