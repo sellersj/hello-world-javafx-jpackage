@@ -137,7 +137,7 @@
         <configuration>
           <toolchains>
             <jdk>
-              <version>${maven.compiler.source}</version>
+              <version>${maven.compiler.release}</version>
             </jdk>
           </toolchains>
         </configuration>
