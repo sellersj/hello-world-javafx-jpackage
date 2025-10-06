@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-java@v5
       with:
         distribution: 'temurin'
-        java-version: '25.0.0+36.0.LTS'
+        java-version: 25
         cache: maven
     # BUILD FOR DISTRIBUTION
     - id: build
