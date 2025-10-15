@@ -24,7 +24,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 25
-        #cache: maven
+        cache: maven
     # BUILD FOR DISTRIBUTION
     - id: build
       name: Build distribution
@@ -43,60 +43,4 @@ jobs:
         retention-days: 7
 
 
-  build-windows-installer:
-    name: Build Installer on Windows
-    runs-on: windows-latest
-    steps:
-    # SETUP BUILD ENVIRONMENT
-    - id: checkout-code
-      name: Checkout code
-      uses: actions/checkout@v5
-    - id: setup-jdk
-      name: Setup JDK
-      uses: actions/setup-java@v5
-      with:
-        distribution: 'temurin'
-        java-version: 25
-        cache: maven
-    # BUILD FOR DISTRIBUTION
-    - id: build
-      name: Build distribution
-      run: |
-        .\\mvnw.cmd -B -V clean verify
-    # SAVE INSTALLER
-    - id: upload-installer
-      name: Upload installer
-      uses: actions/upload-artifact@v4
-      with:
-        path: ./target/hello-world-javafx-jpackage*.zip
-        name: windows-installer
-        retention-days: 7
-
-  build-macos-installer:
-    name: Build Installer on MacOS
-    runs-on: macos-latest
-    steps:
-    # SETUP BUILD ENVIRONMENT
-    - id: checkout-code
-      name: Checkout code
-      uses: actions/checkout@v5
-    - id: setup-jdk
-      name: Setup JDK
-      uses: actions/setup-java@v5
-      with:
-        distribution: 'temurin'
-        java-version: 25
-        cache: maven
-    # BUILD FOR DISTRIBUTION
-    - id: build
-      name: Build distribution
-      run: |
-        ./mvnw -B -V clean verify
-    # SAVE INSTALLER
-    - id: upload-installer
-      name: Upload installer
-      uses: actions/upload-artifact@v4
-      with:
-        path: ./target/hello-world-javafx-jpackage*.zip
-        name: macos-installer
-        retention-days: 7
+ 
