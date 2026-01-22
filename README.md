@@ -29,5 +29,3 @@ https://stackoverflow.com/a/55300492/2055199
 
 ### Examples from github
 I found https://github.com/sualeh/build-jpackage very useful
-
-test
